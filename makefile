@@ -10,7 +10,7 @@ CXX := g++		#compilator flag
 # -g : turn on debug info
 # -ansi : turn on verbose
 # -pedantic : complete -ansi tag
-CXXFLAGS := -Wall -g -ansi -pedantic -std=c++14
+CXXFLAGS := -Wall -g -ansi -pedantic -std=c++17
 LDFLAGS := -I$(INC_DIR)
 
 # Files loading

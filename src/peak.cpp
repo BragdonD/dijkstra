@@ -15,7 +15,7 @@
  * 
  * @param num Value contain inside the peak
  */
-Peak::Peak(int num):m_num{num}, m_mark(marking::unsee){}
+Peak::Peak(int num):m_num{num}, m_predecessor(NULL), m_mark(marking::unsee){}
 
 /**
  * @brief Destroy the Peak:: Peak object
@@ -36,8 +36,8 @@ int Peak::getNum()const{
  * 
  * @return const std::vector<std::pair<const Peak*, double>>std::vector<const Peak*>& a vector containing all the successors of the peak
  */
-const std::vector<std::pair<const Peak*, double>>& Peak::getSuccessors()const {
-    return m_successeurs;
+const std::vector<std::pair<const Peak*, double>>& Peak::getSuccessors() const {
+    return m_successors;
 }
 
 /**
@@ -65,7 +65,7 @@ void Peak::setMarking(marking mark) {
  * @param d the distance to the successor
  */
 void Peak::addSucc(const Peak*s, double d){
-    m_successeurs.push_back({s, d});
+    m_successors.push_back({s, d});
 }
 
 /**
@@ -77,9 +77,17 @@ void Peak::addSucc(const Peak*s, double d){
  */
 std::ostream& operator<<(std::ostream& os, const Peak &x) {
     os << "     Peak " << x.m_num << " : " << std::endl;
-    for (auto s : x.m_successeurs) {
+    for (auto s : x.m_successors) {
         os << '\t' << s.first->getNum() << " ";
         os << "- distance : " << s.second << ";" << std::endl;
     }
     return os;
+}
+
+const Peak* Peak::getPredecessor() const {
+    return m_predecessor;
+}
+
+void Peak::setPredecessor(Peak* p) {
+    m_predecessor = p;
 }
