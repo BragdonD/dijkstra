@@ -76,10 +76,10 @@ void Peak::addSucc(const Peak*s, double d){
  * @return std::ostream& 
  */
 std::ostream& operator<<(std::ostream& os, const Peak &x) {
-    os << "     Peak " << x.m_num << " : ";
+    os << "     Peak " << x.m_num << " : " << std::endl;
     for (auto s : x.m_successeurs) {
-        os << s.first->getNum() << " ";
-        os << ', distance : ' << s.second << ' ';
+        os << '\t' << s.first->getNum() << " ";
+        os << "- distance : " << s.second << ";" << std::endl;
     }
     return os;
 }
