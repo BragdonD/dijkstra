@@ -26,14 +26,14 @@ enum class marking {
 class Peak{
     private :
         int m_num;
-        std::vector<std::pair<const Peak*, double>> m_successeurs;
+        std::vector<std::pair<const Peak*, double> > m_successeurs;
         marking m_mark;
 
     public :
         Peak(int num);
         ~Peak();
         int getNum() const;
-        const std::vector<std::pair<const Peak*, double>>& getSuccessors() const;
+        const std::vector<std::pair<const Peak*, double> >& getSuccessors() const;
         const marking getMarking() const;
         void setMarking(marking mark);
         void addSucc(const Peak*s, double d);
