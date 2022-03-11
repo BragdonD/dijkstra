@@ -26,16 +26,19 @@ enum class marking {
 class Peak{
     private :
         int m_num;
-        std::vector<std::pair<const Peak*, double> > m_successeurs;
+        Peak* m_predecessor;
+        std::vector<std::pair<const Peak*, double> > m_successors;
         marking m_mark;
 
     public :
         Peak(int num);
         ~Peak();
         int getNum() const;
-        const std::vector<std::pair<const Peak*, double> >& getSuccessors() const;
+        const Peak* getPredecessor() const;
+        const std::vector<std::pair<const Peak*, double>>& getSuccessors() const;
         const marking getMarking() const;
         void setMarking(marking mark);
+        void setPredecessor(Peak* p);
         void addSucc(const Peak*s, double d);
         friend std::ostream& operator<<(std::ostream& os, const Peak &x);
 

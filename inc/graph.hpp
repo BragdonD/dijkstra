@@ -26,7 +26,9 @@ class Graph{
     public :
         Graph(std::string nomFichier);
         ~Graph();
-        Peak* getPeak(int nb);
+        Peak* getPeak(int nb) const;
+        std::vector<Peak*> getPeaks() const;
+        void resetPeaks();
         friend std::ostream& operator<<(std::ostream& os, const Graph &x);
 };
 
