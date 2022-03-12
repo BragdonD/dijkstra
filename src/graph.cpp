@@ -65,7 +65,7 @@ Graph::Graph(std::string nomFichier) {
 /**
  * @brief Getter for a particular peak
  * 
- * @param nb the value store in the peak to search for
+ * @param nb the peak's id
  * @return Peak* the found peak else NULL
  */
 Peak* Graph::getPeak(int nb) const { 
@@ -77,6 +77,11 @@ Peak* Graph::getPeak(int nb) const {
     return NULL;
 }
 
+/**
+ * @brief getter of every peaks in the graph
+ * 
+ * @return std::vector<Peak*> containing all the peaks
+ */
 std::vector<Peak*> Graph::getPeaks() const {
     return m_Peaks;
 }
@@ -114,6 +119,10 @@ std::ostream& operator<<(std::ostream& os, const Graph &x) {
     return os;
 }
 
+/**
+ * @brief Reset every Predecessor
+ * 
+ */
 void Graph::resetPeaks() {
     for(auto &it : m_Peaks) {
         it->setPredecessor(NULL);
