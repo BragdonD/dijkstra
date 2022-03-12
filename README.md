@@ -7,9 +7,9 @@ Pour réaliser ceci nous devions utiliser l'algorithme de Dijkstra.
 ## Graphes
 Nous avons créé deux graphes :
 - [graphe normal](graph.txt) qui contient le graph de base pouvant être retrouvé dans le [sujet](enonce/TD_TP_3.pdf)
-- [graphe infini](graph.txt) qui est le même graphe que celui précédent mais avec un sommet non ateignable
+- [graphe infini](test_infinite.txt) qui est le même graphe que celui précédent mais avec un sommet non ateignable
 
-Le [graphe infini](graph.txt) permet d'observer le comportement de l'algorithm lorsqu'il rencontre un sommet inateignable.
+Le [graphe infini](test_infinite.txt) permet d'observer le comportement de l'algorithm lorsqu'il rencontre un sommet inateignable.
 
 ## Rapport
 
