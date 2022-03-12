@@ -34,7 +34,7 @@ int Peak::getNum()const{
 /**
  * @brief Getter for Successors reference
  * 
- * @return const std::vector<std::pair<const Peak*, double>>std::vector<const Peak*>& a vector containing all the successors of the peak
+ * @return const std::vector<std::pair<const Peak*, double>>& a vector containing all the peak's successors and their distance to the peak
  */
 const std::vector<std::pair<const Peak*, double>>& Peak::getSuccessors() const {
     return m_successors;
@@ -62,7 +62,7 @@ void Peak::setMarking(marking mark) {
  * @brief Add a successor to the successors vector
  * 
  * @param s the peak to add
- * @param d the distance to the successor
+ * @param d the arc's weight between the peak and the successor
  */
 void Peak::addSucc(const Peak*s, double d){
     m_successors.push_back({s, d});
@@ -84,10 +84,20 @@ std::ostream& operator<<(std::ostream& os, const Peak &x) {
     return os;
 }
 
+/**
+ * @brief getter of the peak's predecessor
+ * 
+ * @return const Peak* the predecessor's peak
+ */
 const Peak* Peak::getPredecessor() const {
     return m_predecessor;
 }
 
+/**
+ * @brief setter of the peak's predecessor
+ * 
+ * @param p the predecessor's peak
+ */
 void Peak::setPredecessor(Peak* p) {
     m_predecessor = p;
 }
