@@ -11,12 +11,15 @@
 #include <iostream>
 #include "graph.hpp"
 #include "dijkstra.hpp"
+#include "cli.hpp"
 
 int main(int argc, char const *argv[])
 {
     Graph g("graph.txt");
-    int start = 1;
 
+    std::cout << "Write starting peak's id : " << std::endl;
+    int start = cli::getInteger();
+    
     ///Use dijkstra algorithm
     std::vector<std::pair<Peak*,double>> r = algo::dijkstra(g, start);
 
