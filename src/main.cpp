@@ -15,7 +15,7 @@
 
 int main(int argc, char const *argv[])
 {
-    Graph g("graph.txt");
+    Graph g("test_infinite.txt");
 
     std::cout << "Write starting peak's id : " << std::endl;
     int start = cli::getInteger();
@@ -23,8 +23,13 @@ int main(int argc, char const *argv[])
     ///Use dijkstra algorithm
     std::vector<std::pair<Peak*,double>> r = algo::dijkstra(g, start);
 
-    ///Print dijkstra result
+    ///Print dijkstra result for every path
     algo::printDijkstra(r, start);
-    
+
+    std::cout << "Write ending peak's id : " << std::endl;
+    int end = cli::getInteger();
+    ///Print dijkstra result for a unique path
+    algo::printDijkstraShortestPath(r, start, end);
+
     return 0;
 }

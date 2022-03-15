@@ -22,7 +22,7 @@
 std::vector<std::pair<Peak*, double>> algo::dijkstra(Graph &g, int start) {
     /**
      * @brief Function to compare the distance between the peak and the first peak of two peaks. 
-     * It it made for creating an heap 
+     * It is made for creating an heap 
      * 
      */
     auto compare_d = [](std::pair<Peak*, double>& a, std::pair<Peak*, double>& b) {
@@ -101,6 +101,7 @@ std::vector<std::pair<Peak*, double>> algo::initDijkstra(const std::vector<Peak*
  * @brief Algorithm to print Dijkstra algorithm result
  * 
  * @param r Dijkstra algorithm result
+ * @param start starting peak's id
  */
 void algo::printDijkstra(std::vector<std::pair<Peak*, double>>& r, int start) {
     for(const auto &it :r) {
@@ -110,4 +111,37 @@ void algo::printDijkstra(std::vector<std::pair<Peak*, double>>& r, int start) {
         else 
             std::cout << std::endl;
     }
+}
+
+/**
+ * @brief Algorithm to print Dijkstra shortest path for an ending peak
+ * 
+ * @param r Dijkstra algorithm result
+ * @param start starting peak's id
+ * @param end ending peak's id
+ */
+void algo::printDijkstraShortestPath(std::vector<std::pair<Peak*, double>>& r, int start, int end) {
+    ///find the ending peak
+    auto res = std::find_if(std::begin(r), std::end(r), [&end](std::pair<Peak*, double>& it) {
+        return it.first->getNum() == end;
+    });
+    Peak* predecessor = NULL;///useful to keep track of the last predecessor and check if he is in the path
+    while(res != std::begin(r)) {
+        ///Check if it's a correct predecessor
+        if(predecessor == NULL || predecessor->getNum() == res->first->getNum()) {
+            std::cout << res->first->getNum();
+            predecessor = (Peak*)res->first->getPredecessor();
+            ///if the predecessor is Null again it means the peak cannot be reach from this starting point
+            if(predecessor == NULL) {
+                std::cout << std::endl;
+                return;
+            } 
+            else {
+                std::cout << " <-- ";
+            }
+        }
+        res--;
+    }
+    
+    std::cout << start << std::endl;
 }

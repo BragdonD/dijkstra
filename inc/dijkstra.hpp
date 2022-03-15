@@ -19,6 +19,7 @@ namespace algo {
     std::vector<std::pair<Peak*, double>> dijkstra(Graph &g, int start);
     std::vector<std::pair<Peak*, double>> initDijkstra(const std::vector<Peak*> &v, int start);
     void printDijkstra(std::vector<std::pair<Peak*, double>>& r, int start);
+    void printDijkstraShortestPath(std::vector<std::pair<Peak*, double>>& r, int start, int end);
 }
 
 #endif // DIJKSTRA_HPP
