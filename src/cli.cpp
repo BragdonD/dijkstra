@@ -33,3 +33,11 @@ int cli::getInteger() {
 
     return integer;
 }
+
+void cli::menu() {
+    std::cout << "MENU :" << std::endl;
+    std::cout << "1. Print full Dijkstra results." << std::endl;
+    std::cout << "2. Print result for an end peak" << std::endl;
+    std::cout << "3. Print Graph." << std::endl;
+    std::cout << "4. Exit." << std::endl;
+}

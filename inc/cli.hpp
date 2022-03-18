@@ -16,6 +16,7 @@
 
 namespace cli {
     int getInteger();
+    void menu();
 }
 
 #endif // CLI_HPP

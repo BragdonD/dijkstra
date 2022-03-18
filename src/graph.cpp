@@ -91,7 +91,7 @@ std::vector<Peak*> Graph::getPeaks() const {
  * 
  */
 Graph::~Graph() {
-    for (auto s : m_Peaks)
+    for (auto &s : m_Peaks)
         delete s;
 }
 
